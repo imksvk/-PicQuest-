@@ -5,7 +5,9 @@
 }
 
 body {
-    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    /* background-color: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+     */
+     background-color: rgb(11, 91, 91);
     color: white;
     text-align: center;
     min-height: 100vh;
@@ -121,4 +123,16 @@ nav{
 
 #morebtn:hover{
     background-color: #008c9e ;
+}
+
+
+
+.darkmode{
+    background-color: #121212;
+    color: #E0E0E0;
+}
+
+
+.darkmodebtn{
+    cursor: pointer;
 }

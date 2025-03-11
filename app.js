@@ -3,12 +3,13 @@ let searchinput = document.getElementById("searchinput");
 let searchbtn = document.getElementById("searchbtn");
 let showdata = document.querySelector(".showdata");
 let morebtn = document.querySelector("#morebtn");
+let dark = false;
 let page = 1;
 let loadmore = document.querySelector(".loadmore");
-
+let darkmodebtn = document.querySelector(".darkmodebtn");
 
 const getdata = async (searchvalue, pageno)=>{
-    let fetching = await fetch(`https://api.unsplash.com/search/photos?query=${searchvalue}&per_Page=28&P=${pageno} age&client_id=${accesskey}`);
+    let fetching = await fetch(`https://api.unsplash.com/search/photos?query=${searchvalue}&per_Page=30&P=${pageno} age&client_id=${accesskey}`);
     
     let jsondata = await fetching.json();
     // console.log(jsondata.results[0].urls.full);
@@ -49,4 +50,12 @@ searchbtn.addEventListener("click",function(){
 morebtn.addEventListener("click",function(){
     let searchvalue = searchinput.value;
     getdata(searchvalue, ++page);
+})
+
+
+darkmodebtn.addEventListener("click", ()=>{
+    document.querySelector("body").classList.toggle("darkmode");
+   if(dark == false) darkmodebtn.innerHTML = `<i class="ri-sun-line"></i>`;
+   else darkmodebtn.innerHTML = `<i class="ri-sun-fill"></i>`;
+    dark = !dark;
 })
